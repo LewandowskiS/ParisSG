@@ -1,0 +1,1142 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 65, 112, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(227, 6, 19), rgba(227, 6, 19, 0.6));
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(227, 6, 19);
+    background-clip: content-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #004170;
+    color: white;
+    overflow-x: hidden;
+}
+
+@property --blue {
+    syntax: '<color>';
+    initial-value: rgb(0, 65, 112);
+    inherits: false;
+}
+
+@property --red {
+    syntax: '<color>';
+    initial-value: rgb(227, 6, 19);
+    inherits: false;
+}
+
+img, 
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
+}
+
+button {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.menu ul {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+    align-items: center;
+}
+
+.menu ul li a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--red));
+    transition: width 0.4s ease;
+}
+
+.menu ul li a:hover {
+    color: var(--red);
+}
+
+.menu ul li a:hover::after {
+    width: 100%;
+}
+
+.menu__link {
+    margin-top: 0;
+}
+
+.menu__line {
+    border-left: 2px solid rgba(0, 65, 112, 0.2);
+    height: 30px;
+}
+
+.menu__bars {
+    display: block;
+    color: var(--blue);
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu__bars:hover {
+    transform: scale(1.1) rotate(90deg);
+    color: var(--red);
+    cursor: pointer;
+}
+
+.menu__dark {
+    margin-top: 0;
+    right: 2%;
+    position: absolute;
+    color: var(--blue);
+    width: 28px;
+    transition: all 0.3s ease;
+}
+
+.menu__dark:hover {
+    transform: rotate(180deg);
+    color: var(--red);
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(rgba(0, 65, 112, 0.3), rgba(227, 6, 19, 0.2)), url("images/psgback.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(227, 6, 19, 0.15), transparent 60%);
+    pointer-events: none;
+}
+
+.subtitle {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 3rem;
+    z-index: 1;
+}
+
+.subtitle h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 900;
+    font-size: clamp(4rem, 10vw, 9rem);
+    letter-spacing: 8px;
+    cursor: default;
+    line-height: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle h1.h1_1 {
+    color: white;
+    text-shadow: 6px 6px 0px rgba(88, 88, 128, 0.8), 12px 12px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 8px solid white;
+    clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+    padding-right: 2rem;
+    animation: slideInLeft 1s ease-out;
+}
+
+.subtitle h1.h1_2 {
+    color: white;
+    text-shadow: 6px 6px 0px rgba(170, 74, 74, 0.8), 12px 12px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 8px solid white;
+    clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 0% 100%);
+    padding-right: 3rem;
+    animation: slideInLeft 1.2s ease-out;
+}
+
+.subtitle h1.h1_3 {
+    color: white;
+    text-shadow: 6px 6px 0px rgba(172, 155, 58, 0.8), 12px 12px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 8px solid white;
+    clip-path: polygon(0% 0%, 100% 0%, 65% 100%, 0% 100%);
+    animation: slideInLeft 1.4s ease-out;
+}
+
+.Psg_info {
+    position: relative;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 2rem 3rem;
+    z-index: 1;
+}
+
+.info1 {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.info1 h2 {
+    color: var(--blue);
+    font-size: 2.5rem;
+    font-weight: 900;
+    border-bottom: 3px solid var(--red);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.info1 p {
+    color: #333;
+    text-align: justify;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    cursor: default;
+}
+
+.info1 button {
+    margin-top: 2rem;
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--blue), #003a5d);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 65, 112, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.info1 button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.info1 button:hover::before {
+    left: 100%;
+}
+
+.info1 button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 65, 112, 0.5);
+    background: linear-gradient(135deg, var(--red), #b00510);
+}
+
+.info1 a {
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.main {
+    min-height: 100vh;
+    background: white;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+    padding-bottom: 4rem;
+}
+
+.cups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(180deg, #ffffff, #f8f9fa);
+}
+
+.cups div {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.cups div::before {
+    content: '2';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 25%;
+    background: linear-gradient(135deg, var(--blue), var(--red));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
+}
+
+.cups div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 65, 112, 0.2);
+}
+
+.cups div:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cups img {
+    width: 80px;
+    height: 80px;
+    filter: brightness(0);
+    transition: all 0.4s ease;
+}
+
+.cups div:hover img {
+    filter: brightness(0) drop-shadow(0 0 20px rgba(0, 65, 112, 0.5));
+    transform: scale(1.1);
+}
+
+.cups img.world {
+    width: 50px;
+    height: 50px;
+}
+
+.cups img.champions {
+    width: 65px;
+    height: 65px;
+}
+
+.cups img.coupe {
+    width: 65px;
+    height: 65px;
+}
+
+.cups img.tro {
+    width: 60px;
+    height: 60px;
+}
+
+.cups h3 {
+    margin-top: 1.5rem;
+    color: black;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: default;
+    padding: 0 1rem;
+}
+
+.ligue1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+    margin-top: 3rem;
+    overflow: hidden;
+}
+
+.liguelogo {
+    background: #01206a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.liguelogo::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 97, 254, 0.1), transparent);
+    animation: rotate 20s linear infinite;
+}
+
+.ligueinfo {
+    color: black;
+    position: relative;
+    background: white;
+}
+
+.ligueinfo h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    padding: 2rem 2.5rem;
+    background: linear-gradient(135deg, rgb(0, 97, 254), rgb(0, 65, 180));
+    color: white;
+    border-top: 3px solid var(--blue);
+    border-bottom: 3px solid var(--blue);
+    cursor: default;
+    letter-spacing: 3px;
+}
+
+.ligueinfo p {
+    padding: 2rem 2.5rem;
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    cursor: default;
+}
+
+.ligueinfo img.flag {
+    position: absolute;
+    right: 5%;
+    width: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    border-radius: 5px;
+}
+
+.ligueinfo img.tower {
+    position: absolute;
+    width: 100px;
+    top: 40%;
+    right: 7%;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.liguecomm {
+    width: 100%;
+    height: 300px;
+    background: url("https://www.sportbuzzbusiness.fr/wp-content/uploads/2024/03/nouveau-logo-ligue-1-bleu-et-blanc.jpg");
+    background-position: center;
+    background-size: 15%;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 100px rgba(106, 137, 241, 0.2);
+    position: relative;
+}
+
+.liguecomm::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 30%, rgba(255, 255, 255, 0.9) 80%);
+}
+
+.Stadium {
+    position: relative;
+    background: var(--blue);
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.3fr;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.Stadium svg {
+    height: 30px;
+    width: 30px;
+}
+
+.st1 {
+    padding: 2.5rem;
+    border-right: 4px solid var(--red);
+    background: linear-gradient(135deg, var(--blue), #003a5d);
+}
+
+.st2 {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--blue);
+}
+
+.st3 {
+    background: url("https://www.soccerscene.com.au/wp-content/uploads/2024/02/0702915541298-web-tete.webp");
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: relative;
+    filter: contrast(110%);
+}
+
+.st3::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 65, 112, 0.7), rgba(227, 6, 19, 0.3));
+    mix-blend-mode: multiply;
+}
+
+.st2 p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: justify;
+}
+
+.st2 button {
+    background: linear-gradient(135deg, var(--red), #b00510);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-top: 2rem;
+    box-shadow: 0 10px 30px rgba(227, 6, 19, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.st2 button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(227, 6, 19, 0.6);
+}
+
+.st1 h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: white;
+    border-left: 8px solid var(--red);
+    padding-left: 1.5rem;
+    cursor: default;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.st1 h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: rgba(255, 255, 255, 0.8);
+    border-left: 8px solid var(--red);
+    padding-left: 1.5rem;
+    cursor: default;
+    font-weight: 400;
+}
+
+.st1 ul {
+    margin-top: 3rem;
+}
+
+.st1 ul li {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    cursor: default;
+    font-size: 1.1rem;
+    color: white;
+    border-left: 8px solid var(--red);
+    padding: 1rem 0 1rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.st1 ul li:hover {
+    padding-left: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.stade_layout {
+    background: url("https://cityprintsmapart.com/wp-content/uploads/2015/08/fc_par_1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    position: relative;
+    min-height: 600px;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stade_layout::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 65, 112, 0.85), rgba(227, 6, 19, 0.7));
+    backdrop-filter: blur(2px);
+}
+
+.stade_layout::after {
+    content: 'LAYOUT';
+    position: relative;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    text-align: center;
+    font-weight: 900;
+    text-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    letter-spacing: 10px;
+    z-index: 1;
+}
+
+.subs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.subs div {
+    background: white;
+    border: 2px solid rgba(0, 65, 112, 0.1);
+    border-radius: 25px;
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.subs div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.subs h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    font-size: 3rem;
+    position: relative;
+    padding: 1.5rem 2rem;
+    font-weight: 900;
+    border-bottom: 2px solid rgba(0, 65, 112, 0.1);
+    letter-spacing: 2px;
+}
+
+.subs h1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("https://i.pinimg.com/736x/91/44/b0/9144b0efc964f2d2ca4fea90e76c1463.jpg");
+    background-size: cover;
+    opacity: 0.1;
+    filter: contrast(300%) blur(1px);
+}
+
+.subs h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 2rem 0;
+    color: rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subs h3 {
+    margin: 1rem 0;
+    border-top: 2px solid rgba(0, 65, 112, 0.1);
+    border-bottom: 2px solid rgba(0, 65, 112, 0.1);
+    color: var(--blue);
+    padding: 1.5rem 2rem;
+    position: relative;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.subs h3::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("https://i.pinimg.com/736x/91/44/b0/9144b0efc964f2d2ca4fea90e76c1463.jpg");
+    background-size: 300%;
+    opacity: 0.08;
+    filter: contrast(300%) blur(3px);
+}
+
+.subs ul {
+    padding: 2rem;
+    flex: 1;
+}
+
+.subs li {
+    position: relative;
+    padding-left: 2.5em;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.subs li::before {
+    content: '⚽';
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.subs button {
+    padding: 1.5rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-top: 2px solid rgba(0, 65, 112, 0.1);
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.subs button:hover {
+    background: var(--blue);
+    color: white;
+}
+
+.blue h1 {
+    color: var(--blue);
+}
+
+.red h1 {
+    color: var(--red);
+}
+
+.gold h1 {
+    color: rgb(172, 155, 58);
+}
+
+.note {
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 1200px;
+    border-top: 3px solid var(--blue);
+    border-bottom: 3px solid var(--blue);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.note h3 {
+    margin-bottom: 1.5rem;
+    color: white;
+    text-align: center;
+    background: linear-gradient(135deg, rgb(207, 84, 84), rgb(170, 60, 60));
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+}
+
+.note p {
+    color: rgb(0, 0, 0);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+footer {
+    background: linear-gradient(135deg, var(--blue), #003a5d);
+    min-height: 400px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    border-top: 10px solid var(--red);
+    padding: 3rem 2rem;
+}
+
+footer h2 {
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+}
+
+footer h3 {
+    background: white;
+    clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+    color: var(--blue);
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    text-align: justify;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.ft1 {
+    padding: 2rem;
+}
+
+.ft2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.ft2::before {
+    content: '';
+    position: absolute;
+    background: var(--red);
+    width: 150px;
+    height: 150px;
+    clip-path: polygon(100% 0%, 0% 0%, 30% 50%, 0% 100%, 100% 100%);
+    left: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
+.ft2::after {
+    content: '';
+    position: absolute;
+    background: var(--red);
+    width: 150px;
+    height: 150px;
+    clip-path: polygon(100% 0%, 0% 0%, 30% 50%, 0% 100%, 100% 100%);
+    transform: rotate(180deg) translateY(50%);
+    right: 20%;
+    top: 50%;
+    opacity: 0.3;
+}
+
+.ft2 img {
+    width: 200px;
+    max-width: 100%;
+    z-index: 2;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+.ft2 p {
+    text-align: center;
+    font-style: italic;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1200px) {
+    .subtitle h1 {
+        font-size: clamp(3rem, 8vw, 7rem);
+    }
+    
+    .Stadium {
+        grid-template-columns: 1fr;
+    }
+    
+    .st1 {
+        border-right: none;
+        border-bottom: 4px solid var(--red);
+    }
+    
+    .st3 {
+        clip-path: none;
+        min-height: 400px;
+    }
+    
+    .ligueinfo img.flag,
+    .ligueinfo img.tower {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu ul {
+        gap: 1.5rem;
+    }
+    
+    .title {
+        flex-direction: column;
+        background-attachment: scroll;
+    }
+    
+    .subtitle,
+    .Psg_info {
+        width: 100%;
+        padding: 2rem;
+    }
+    
+    .Psg_info {
+        align-items: flex-start;
+    }
+    
+    .info1 {
+        margin-top: 0;
+    }
+    
+    .ligue1 {
+        grid-template-columns: 1fr;
+    }
+    
+    .liguelogo {
+        min-height: 300px;
+    }
+    
+    .cups {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .stade_layout {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        padding: 1rem;
+    }
+    
+    .menu ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .menu__link {
+        font-size: 0.9rem;
+    }
+    
+    .menu__line {
+        display: none;
+    }
+    
+    .subtitle h1 {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+        letter-spacing: 3px;
+    }
+    
+    .subtitle h1.h1_1,
+    .subtitle h1.h1_2,
+    .subtitle h1.h1_3 {
+        border-bottom: 5px solid white;
+    }
+    
+    .info1 {
+        padding: 1.5rem;
+    }
+    
+    .info1 h2 {
+        font-size: 2rem;
+    }
+    
+    .ligueinfo h2 {
+        font-size: 2.5rem;
+        padding: 1.5rem;
+    }
+    
+    .ligueinfo p {
+        padding: 1.5rem;
+    }
+    
+    .st1 h1 {
+        font-size: 2.5rem;
+    }
+    
+    .st1 h2 {
+        font-size: 1.5rem;
+    }
+    
+    .st1 ul {
+        margin-top: 2rem;
+    }
+    
+    .st1 ul li {
+        font-size: 1rem;
+        padding: 0.75rem 0 0.75rem 1rem;
+    }
+    
+    .st2 p {
+        font-size: 0.85rem;
+    }
+    
+    .subs {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+    
+    footer {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu ul li a {
+        font-size: 0.8rem;
+    }
+    
+    .subtitle {
+        padding: 1rem;
+    }
+    
+    .subtitle h1 {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+    }
+    
+    .Psg_info {
+        padding: 1rem;
+    }
+    
+    .info1 {
+        padding: 1.25rem;
+    }
+    
+    .info1 h2 {
+        font-size: 1.5rem;
+    }
+    
+    .info1 p {
+        font-size: 0.85rem;
+    }
+    
+    .cups {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        padding: 2rem 1rem;
+    }
+    
+    .cups h3 {
+        font-size: 0.8rem;
+    }
+    
+    .ligueinfo h2 {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    
+    .ligueinfo p {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .st1,
+    .st2 {
+        padding: 1.5rem;
+    }
+    
+    .stade_layout::after {
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+    
+    .subs h1 {
+        font-size: 2rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .subs h3 {
+        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    footer {
+        padding: 2rem 1rem;
+    }
+    
+    .ft1,
+    .ft2 {
+        padding: 1rem;
+    }
+}
